@@ -53,6 +53,15 @@ def del_note(message):
             bot.send_message(message.chat.id," такой заметки нет")
     else:
         bot.send_message(message.chat.id, "пока заметок нет")
+@bot.message_handler(commands=["count"])
+def count_notes(message):
+    if os.path.exists("notes.json"):
+        with open("notes.json", "r", encoding="utf-8") as file:
+            notes = json.load(file)
+        bot.send_message(message.chat.id, f"У тебя {len(notes)} заметок")
+    else:
+        bot.send_message(message.chat.id, "заметок пока нет")
+
 @bot.message_handler(commands=["clear"])
 def clear_notes(message):
     if os.path.exists("notes.json"):
