@@ -4,7 +4,7 @@ import json
 import os
 import datetime
 
-bot = telebot.TeleBot("8814124846:AAFU6ji_wMm93_qO1PP8vqxaVmnoBBdJPSo")
+bot = telebot.TeleBot("Токен_бота")
 
 @bot.message_handler(commands=["start"])
 def start(message):
